@@ -6,15 +6,12 @@
   "repository": "",
   "license": "UNLICENSED",
   "scripts": {
-    "start": "node app.js",
-    "dev": "cross-env NODE_ENV=development webpack serve --config ./build/webpack.config.js",
-    "build": "cross-env NODE_ENV=production node ./build/build.js",
-    "build-cordova": "cross-env TARGET=cordova cross-env NODE_ENV=production node ./build/build.js && cd cordova && cordova build",
-    "build-cordova-ios": "cross-env TARGET=cordova cross-env NODE_ENV=production node ./build/build.js && cd cordova && cordova build ios",
-    "cordova-ios": "cross-env TARGET=cordova cross-env NODE_ENV=development node ./build/build.js && cd cordova && cordova run ios",
-    "build-cordova-android": "cross-env TARGET=cordova cross-env NODE_ENV=production node ./build/build.js && cd cordova && cordova build android",
-    "cordova-android": "cross-env TARGET=cordova cross-env NODE_ENV=development node ./build/build.js && cd cordova && cordova run android",
-    "postinstall": "cpy ./node_modules/framework7-icons/fonts/*.* ./src/fonts/"
+    "dev": "react-scripts start",
+    "start": "serve -s build",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "heroku-postbuild": "npm run build"
   },
   "browserslist": [
     "Android >= 7",
@@ -33,6 +30,7 @@
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "serve": "^11.3.2",
     "skeleton-elements": "^3.3.0",
     "swiper": "^6.5.7"
   },
